@@ -3,17 +3,6 @@ import os.path
 import nessus
 
 from setuptools import setup, find_packages
-from pip.req import parse_requirements
-
-
-def requirements(fname):
-    """Utility function to read the requirements file.
-
-    :param fname: requirements file
-    :return: requirements list
-    """
-    install_reqs = parse_requirements(os.path.join(os.path.dirname(__file__), fname))
-    return [str(ir.req) for ir in install_reqs]
 
 
 def readme(fname):
@@ -41,7 +30,7 @@ setup(
     long_description=readme('README.rst'),
     license='MIT',
     keywords='nessus api rest client',
-    install_requires=requirements('requirements.txt'),
+    install_requires=['requests', ],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
